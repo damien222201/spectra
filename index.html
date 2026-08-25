@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spectra — The Periodic Table</title>
+<meta name="description" content="An interactive periodic table with full physical properties, electron configuration, reactivity, and common compounds for every element.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="brand">
+    <div class="brand-mark"><span class="dot"></span>SPECTRA</div>
+    <div class="brand-tag">118 elements · full properties · reactivity · compounds</div>
+  </div>
+  <div class="header-controls">
+    <div class="view-toggle" role="group" aria-label="Color elements by">
+      <button type="button" class="active" data-view="category">Category</button>
+      <button type="button" data-view="phase">Phase</button>
+    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search-input" type="text" placeholder="Search name, symbol, or number…" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<nav class="legend" id="legend" aria-label="Filter by category"></nav>
+
+<main class="table-wrap">
+  <div class="ptable" id="elements-grid" role="grid" aria-label="Periodic table of elements"></div>
+</main>
+
+<div class="footer-credit">Click any element for full details · Arrow keys navigate while a panel is open</div>
+
+<template id="no-results-tpl">
+  <div class="no-results">No elements match your search.</div>
+</template>
+
+<div class="scrim" id="scrim"></div>
+<aside class="panel" id="panel" aria-label="Element details">
+  <div class="panel-top">
+    <button class="panel-close" id="panel-close" aria-label="Close">✕</button>
+    <div class="panel-nav">
+      <button id="panel-prev" aria-label="Previous element">‹</button>
+      <button id="panel-next" aria-label="Next element">›</button>
+    </div>
+  </div>
+  <div id="panel-body"></div>
+</aside>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
